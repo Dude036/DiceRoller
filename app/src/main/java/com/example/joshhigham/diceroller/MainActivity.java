@@ -1,8 +1,10 @@
 package com.example.joshhigham.diceroller;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button rollButton;
     LinearLayout scrollHistory;
     ScrollView scrollViewHistory;
+    Toolbar topBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         scrollViewHistory = (ScrollView)findViewById(R.id.scrollViewHistory);
         scrollHistory = (LinearLayout)findViewById(R.id.rollHistory);
+        topBar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(topBar);
         rollButton = (Button)findViewById(R.id.rollButton);
         rollButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,5 +137,10 @@ public class MainActivity extends AppCompatActivity {
         ((EditText)findViewById(R.id.diceSize)).setText(Integer.toString(d.diceSize), TextView.BufferType.EDITABLE);
         ((EditText)findViewById(R.id.modSign)).setText(d.modSign, TextView.BufferType.EDITABLE);
         ((EditText)findViewById(R.id.modNum)).setText(Integer.toString(d.diceMod), TextView.BufferType.EDITABLE);
+    }
+
+    public void percentage(View v) {
+        Intent i = new Intent(this, Percentage.class);
+        startActivity(i);
     }
 }

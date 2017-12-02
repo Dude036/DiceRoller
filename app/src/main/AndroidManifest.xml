@@ -19,7 +19,7 @@
         <activity
             android:name=".Percentage"
             android:label="@string/title_activity_percentage"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"/>
     </application>
 
 </manifest>

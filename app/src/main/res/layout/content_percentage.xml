@@ -12,41 +12,42 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
         android:gravity="top|left|start"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+        <EditText
+            android:id="@+id/percentAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Roll Amount"
+            android:inputType="textMultiLine|number" />
 
+        <EditText
+            android:id="@+id/percentDiceAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Dice Amount"
+            android:inputType="textMultiLine|number" />
 
-            <EditText
-                android:id="@+id/percentDice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Roll Amount"
-                android:inputType="textMultiLine|number" />
-
-            <EditText
-                android:id="@+id/percentDice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Dice Size"
-                android:inputType="textMultiLine|number" />
-        </LinearLayout>
+        <EditText
+            android:id="@+id/percentDiceQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Dice Size"
+            android:inputType="textMultiLine|number" />
     </LinearLayout>
 
     <Button
@@ -57,6 +58,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Prediction"
+        android:onClick="percentButtonListener"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -68,7 +70,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
-        android:text="Prediction"
+        android:text="Success Percentage"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,4 +88,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/probabilityTextView" />
+
+    <TextView
+        android:id="@+id/suggestedDiceRoll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Suggested Dice Roll"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suggestedModTextView" />
 </android.support.constraint.ConstraintLayout>

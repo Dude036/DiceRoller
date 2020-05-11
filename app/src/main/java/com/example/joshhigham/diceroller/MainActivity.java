@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private TextView complexRoller(final Dice d) {
+    private TextView complexRoller(final DiceSet d) {
         Vector<Integer> v = d.preciseRoll();
         final TextView textResult = new TextView(this);
         long result = 0;
@@ -63,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
         textResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dice hist = new Dice(d);
-                setDiceView(new Dice(hist));
+                DiceSet hist = new DiceSet(d);
+                setDiceView(new DiceSet(hist));
             }
         });
         return textResult;
     }
 
-    private TextView simpleRoller(final Dice d) {
+    private TextView simpleRoller(final DiceSet d) {
         long result = d.roll();
         final TextView textResult = new TextView(this);
 
@@ -86,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
         textResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Dice hist = new Dice(d);
-                setDiceView(new Dice(hist));
+                DiceSet hist = new DiceSet(d);
+                setDiceView(new DiceSet(hist));
             }
         });
 
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 && !isEmptyTextView((EditText)findViewById(R.id.modSign))
                 && !isEmptyTextView((EditText)findViewById(R.id.modNum))) {
             // Not Empty
-            final Dice tempDice = interpretDiceView();
+            final DiceSet tempDice = interpretDiceView();
 
             final TextView textResult;
             if (!((ToggleButton)findViewById(R.id.toggleButton)).isChecked()) {
@@ -122,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
         return e.getText().toString().trim().length() == 0;
     }
 
-    private Dice interpretDiceView() {
-        Dice temp = new Dice();
+    private DiceSet interpretDiceView() {
+        DiceSet temp = new DiceSet();
         temp.diceQuantity = Integer.parseInt(((EditText)findViewById(R.id.numDice)).getText().toString());
         temp.diceSize = Integer.parseInt(((EditText)findViewById(R.id.diceSize)).getText().toString());
         temp.modSign = ((EditText)findViewById(R.id.modSign)).getText().toString();
@@ -132,15 +132,11 @@ public class MainActivity extends AppCompatActivity {
         return temp;
     }
 
-    private void setDiceView(Dice d) {
+    private void setDiceView(DiceSet d) {
         ((EditText)findViewById(R.id.numDice)).setText(Integer.toString(d.diceQuantity), TextView.BufferType.EDITABLE);
         ((EditText)findViewById(R.id.diceSize)).setText(Integer.toString(d.diceSize), TextView.BufferType.EDITABLE);
         ((EditText)findViewById(R.id.modSign)).setText(d.modSign, TextView.BufferType.EDITABLE);
         ((EditText)findViewById(R.id.modNum)).setText(Integer.toString(d.diceMod), TextView.BufferType.EDITABLE);
     }
 
-    public void percentage(View v) {
-        Intent i = new Intent(this, Percentage.class);
-        startActivity(i);
-    }
 }

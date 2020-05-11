@@ -3,7 +3,7 @@ package com.example.joshhigham.diceroller;
 import java.util.Random;
 import java.util.Vector;
 
-public class Dice {
+public class DiceSet {
     public int diceQuantity;
     public int diceSize;
     public String modSign;
@@ -11,18 +11,18 @@ public class Dice {
 
     private Random rand = new Random();
 
-    public Dice() {
+    public DiceSet() {
         diceMod = diceSize = diceMod = 0;
         modSign = "+";
     }
-     public Dice(int dq, int ds, String ms, int dm) {
+     public DiceSet(int dq, int ds, String ms, int dm) {
          diceQuantity = dq;
          diceSize = ds;
          modSign = ms;
          diceMod = dm;
      }
 
-    public Dice(Dice tempDice) {
+    public DiceSet(DiceSet tempDice) {
         diceQuantity = tempDice.diceQuantity;
         diceSize = tempDice.diceSize;
         modSign = tempDice.modSign;

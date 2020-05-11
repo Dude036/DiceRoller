@@ -15,10 +15,11 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
         android:visibility="visible"
-        app:title="Dice Roller"
-        app:titleTextColor="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:onClick="percentage" >
+        app:title="Dice Roller"
+        app:titleTextColor="@color/colorPrimary">
 
         <Space
             android:layout_width="250dp"
@@ -26,11 +27,6 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="28dp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="percentage"
-            android:src="@drawable/percent" />
     </android.support.v7.widget.Toolbar>
 
     <android.support.constraint.ConstraintLayout
